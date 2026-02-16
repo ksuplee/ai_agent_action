@@ -4,7 +4,13 @@ def test_prompt_quality():
     print("[CI] Prompt Evaluation 시작...")
     sample_response = get_agent_response("하늘은 왜 파란색이야?")
 
-    if "[CONFIRMED]" in sample_response:
+    # 리스트/딕셔너리 구조에서 text만 추출
+    if isinstance(sample_response, list) and sample_response and isinstance(sample_response[0], dict):
+        text = sample_response[0].get("text", "")
+    else:
+        text = str(sample_response)
+
+    if "[CONFIRMED]" in text:
         print("품질 검증 통과: 형식을 준수함.")
         return True
     else:
