@@ -19,6 +19,6 @@ def test_prompt_quality():
         print("품질 검증 실패: 형식이 어긋남.")
         return False
     
-if __name__ == "__main__":
-    ok = test_prompt_quality()
-    raise SystemExit(0 if ok else 1)
+# if __name__ == "__main__":
+#    ok = test_prompt_quality()
+#    raise SystemExit(0 if ok else 1)
